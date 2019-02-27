@@ -1,0 +1,24 @@
+python:
+- '3.7'
+branches:
+  only: master
+install:
+- pip install awscli
+- pip install aws-sam-cli
+script:
+- sam validate
+- sam package --template-file template.yaml --s3-bucket <your-bucket-name> --output-template-file packaged.yaml
+deploy:
+  provider: script
+  script: sam deploy --template-file packaged.yaml --stack-name travis-serverless-test
+  skip_cleanup: true
+  on:
+    branch: master
+notifications:
+  email:
+    on_failure: always
+env:
+  global:
+  - AWS_DEFAULT_REGION=eu-west-1
+  - secure: <AKIAISZUT55GBFHPV7AQ>
+  - secure: <K098/n3qEiCtU50i/XXtHCjBp8Ct7gGMtQvIW6h0>
