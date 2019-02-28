@@ -20,5 +20,5 @@ notifications:
 env:
   global:
   - AWS_DEFAULT_REGION=eu-west-1
-  - secure: <AKIAISZUT55GBFHPV7AQ>
-  - secure: <K098/n3qEiCtU50i/XXtHCjBp8Ct7gGMtQvIW6h0>
+  - secure: <>
+  - secure: <>
